@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:wght@400&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  border: none;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  font-family: 'Comic Neue';
+  max-width: 100vw;
+  justify-content: center;
+  align-items: center;
+  background: #0a1c20;
+  color: #0a1c20
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  margin: 3rem;
+  width: 60%;
+  background: #f6343c;
+  border: 6px solid black;
+  box-shadow: 10px 10px 0px black;
+}
+
+h1 {
+  font-family: 'Bangers';
+  text-shadow: 2px 2px 0px #0a1c20;
+  -webkit-text-stroke: .2px #0a1c20;
+  color: #fffff3;
+  margin-bottom: .5rem;
+}
+
+h2 {
+  font-family: 'Bangers';
+  text-shadow: 2px 2px 0px #0a1c20;
+  -webkit-text-stroke: .2px #0a1c20;
+  color: #fffff3
+}
+
+table {
+  width: 80%;
+  align-self: center;
+  border: 2px solid #0a1c20;
+  padding: 1rem;
+  margin-top: 1rem;
+  box-shadow: 6px 6px 0px #0a1c20;
+  background: #41a6df;
+  font-weight: 700;
+}
+
+.lista-melhores-filmes {
+  margin: 1rem;
+  padding: 1rem 2rem;
+  width: 60%;
+  align-self: center;
+  border: 2px solid #0a1c20;
+  box-shadow: 6px 6px 0px #0a1c20;
+  background: #fedc0d;
+  font-weight: 700;
+}
+
+.subtitle {
+  font-family: 'Bangers';
+  color: #0a1c20
+}
