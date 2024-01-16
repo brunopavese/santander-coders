@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atividade 1 - Agência TravelMundo</title>
+</head>
+
+<body>
+  <main>
+    <h1>TravelMundo</h1>
+    <h2>Escolha seu destino pelo mundo!</h2>
+
+    <form action="form-action.html">
+      <label for="nome">Nome completo:</label>
+      <input type="text" id="nome" name="nome" /><br>
+      <label for="data">Data de partida:</label>
+      <input type="date" id="data" name="data" /><br>
+      <label for="passageiros">Número de passageiros:</label>
+      <input type="number" id="passageiros" name="passageiros" /><br>
+
+      <label for="residencia">País de residência:</label>
+      <select id="residencia" name="residencia">
+        <option value="brasil">Brasil</option>
+        <option value="estados-unidos">Estados Unidos</option>
+        <option value="canada">Canadá</option>
+        <option value="reino-unido">Reino Unido</option>
+        <option value="alemanha">Alemanha</option>
+        <option value="franca">França</option>
+        <option value="japao">Japão</option>
+        <option value="china">China</option>
+        <option value="india">Índia</option>
+        <option value="australia">Austrália</option>
+      </select><br>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" /><br>
+
+      <span>Tipo de refeição:</span><br>
+      <input type="radio" id="vegetariana" name="tipo-refeicao" value="Vegetariana">
+      <label for="vegetariana">Vegetariana</label><br>
+      <input type="radio" id="sem-gluten" name="tipo-refeicao" value="Sem glúten">
+      <label for="sem-gluten">Sem glúten</label><br>
+      <input type="radio" id="padrao" name="tipo-refeicao" value="Padrão">
+      <label for="padrao">Padrão</label><br>
+
+      <label for="tel">Telefone:</label>
+      <input type="tel" id="tel" name="tel" placeholder="(99)99999-9999" /><br>
+
+      <label for="destino">País de destino:</label>
+      <select id="destino" name="destino">
+        <option value="estados-unidos">Estados Unidos</option>
+        <option value="brasil">Brasil</option>
+        <option value="canada">Canadá</option>
+        <option value="reino-unido">Reino Unido</option>
+        <option value="alemanha">Alemanha</option>
+        <option value="franca">França</option>
+        <option value="japao">Japão</option>
+        <option value="china">China</option>
+        <option value="india">Índia</option>
+        <option value="australia">Austrália</option>
+      </select><br>
+
+      <span>Preferencia de assento:</span><br>
+      <input type="radio" id="janela" name="assento" value="janela" />
+      <span>Janela</span><br>
+      <input type="radio" id="corredor" name="assento" value="corredor" />
+      <span>Corredor</span><br>
+      <input type="radio" id="emergencia" name="assento" value="emergencia" />
+      <span>Próximo à saída de emergência</span><br>
+
+      <label for="cartao">Número do cartão:</label>
+      <input type="number" id="cartao" name="cartao" /><br>
+      <label for="passaporte">Cópia do passaporte:</label>
+      <input type="file" id="passaporte" name="passaporte" /><br>
+
+      <span>Preferências de serviços:</span><br>
+      <input type="checkbox" id="quarto" name="servicos" value="quarto" />
+      <span>Serviço de quarto</span><br>
+      <input type="checkbox" id="traslado" name="servicos" value="traslado" />
+      <span>Traslado do aeroporto</span><br>
+      <input type="checkbox" id="passeios" name="servicos" value="passeios" />
+      <span>Passeis turisticos adicionais</span><br>
+
+      <button type="submit">Enviar</button>
+    </form>
+  </main>
+</body>
+
+</html>
