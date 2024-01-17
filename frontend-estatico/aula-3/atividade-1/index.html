@@ -8,11 +8,20 @@
 </head>
 
 <body>
+  <script>
+    const urlParams = new URLSearchParams(window.location.search)
+
+    const entries = urlParams.entries()
+    
+    for (const entry of entries) {
+      console.log(`${entry[0]}: ${entry[1]}}`)
+    }
+  </script>
   <main>
     <h1>TravelMundo</h1>
     <h2>Escolha seu destino pelo mundo!</h2>
 
-    <form action="form-action.html">
+    <form action="index.html">
       <label for="nome">Nome completo:</label>
       <input type="text" id="nome" name="nome" /><br>
       <label for="data">Data de partida:</label>

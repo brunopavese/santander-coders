@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-bt">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atividade 4 [entrega] - Evento da ONG Ajude a Causa</title>
+  <link href="styles.css" rel="stylesheet">
+</head>
+
+<body>
+  <script>
+    const urlParams = new URLSearchParams(window.location.search)
+
+    const entries = urlParams.entries()
+
+    for (const entry of entries) {
+      console.log(`${entry[0]}: ${entry[1]}}`)
+    }
+  </script>
+  <main>
+    <section>
+      <h1>Ajude a Causa</h1>
+      <h2>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nisi quae numquam maxime dignissimos, laboriosam
+        fuga
+        voluptatem nobis! Similique voluptatem expedita ea iusto ipsam eius. Mollitia error maiores fugit facilis
+        voluptas.</h2>
+    </section>
+
+    <form action="index.html" method="post">
+      <label for="name">Nome completo</label> <br>
+      <input class="user-input" type="text" id="name" name="name" required /> <br>
+
+      <label for="age">Idade</label> <br>
+      <input class="user-input" type="number" id="age" name="age" required /> <br>
+
+      <label for="email">Email</label> <br>
+      <input class="user-input" type="email" id="email" name="email" required /> <br>
+
+      <div id="radios-section">
+        <fieldset>
+          <legend>Tamanho de camiseta</legend>
+          <div class="radio-option">
+            <input type="radio" id="P" name="size" value="P" checked />
+            <label for="P">P</label>
+          </div>
+          <div class="radio-option">
+            <input type="radio" id="M" name="size" value="M" />
+            <label for="M">M</label>
+          </div>
+          <div class="radio-option">
+            <input type="radio" id="G" name="size" value="G" />
+            <label for="G">G</label>
+          </div>
+          <div class="radio-option">
+            <input type="radio" id="GG" name="size" value="GG" />
+            <label for="GG">GG</label>
+          </div>
+          <div class="radio-option">
+            <input type="radio" id="XG" name="size" value="XG" />
+            <label for="XG">XG</label>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Categoria</legend>
+          <div class="radio-option">
+            <input type="radio" id="3RUN" name="category" value="3RUN" checked />
+            <label for="3RUN">Corrida 3 Km</label>
+          </div>
+          <div class="radio-option">
+            <input type="radio" id="5RUN" name="category" value="5RUN" />
+            <label for="5RUN">Corrida 5 Km</label>
+          </div>
+          <div class="radio-option">
+            <input type="radio" id="4WALK" name="category" value="4WALK" />
+            <label for="4WALK">Caminhada 4 Km</label>
+          </div>
+        </fieldset>
+      </div>
+
+      <label for="donation">Doação</label> <br>
+      <input class="user-input" type="number" id="donation" name="donation" list="donations" placeholder="Opcional" />
+      <br>
+      <datalist id="donations">
+        <option value="5">R$ 5,00</option>
+        <option value="10">R$ 10,00</option>
+        <option value="15">R$ 15,00</option>
+        <option value="25">R$ 25,00</option>
+        <option value="50">R$ 50,00</option>
+        <option value="100">R$ 100,00</option>
+      </datalist>
+
+      <button type="submit">ENVIAR</button>
+    </form>
+  </main>
+</body>
+
+</html>
