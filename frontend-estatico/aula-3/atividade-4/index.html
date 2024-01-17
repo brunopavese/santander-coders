@@ -9,15 +9,6 @@
 </head>
 
 <body>
-  <script>
-    const urlParams = new URLSearchParams(window.location.search)
-
-    const entries = urlParams.entries()
-
-    for (const entry of entries) {
-      console.log(`${entry[0]}: ${entry[1]}}`)
-    }
-  </script>
   <main>
     <section>
       <h1>Ajude a Causa</h1>
@@ -27,7 +18,7 @@
         voluptas.</h2>
     </section>
 
-    <form action="index.html" method="post">
+    <form action="http://localhost:3000/registrations" method="post">
       <label for="name">Nome completo</label> <br>
       <input class="user-input" type="text" id="name" name="name" required /> <br>
 
