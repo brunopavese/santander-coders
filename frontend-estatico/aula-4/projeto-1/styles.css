@@ -35,6 +35,18 @@ main {
 aside {
   text-align: center;
   padding: 1rem;
+  
+  @media only screen and (min-width: 992px) {
+    padding: 1.5rem 8rem;
+  }
+}
+
+aside p {
+  @media only screen and (min-width: 992px) {
+    display: inline-block;
+    width: 50%;
+    text-align: center;
+  }
 }
 
 aside h2 {
@@ -68,6 +80,10 @@ footer img {
 
 article#home {
   padding: 1rem;
+
+  @media only screen and (min-width: 992px) {
+    padding: 0 0 1rem 0;
+  }
 }
 
 article#home ul {
@@ -91,6 +107,10 @@ h2 {
 article#coffees {
   background-color: #1c2221;
   padding: 1rem 0;
+
+  @media only screen and (min-width: 992px) {
+    padding: 1.5rem 8rem;
+  }
 }
 
 article#coffees h2 {
@@ -105,12 +125,19 @@ article#coffees h2 {
   background: #F2F2F2;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   margin: 1rem 0 0 1rem;
+
+  @media only screen and (min-width: 992px) {
+    width: 290px;
+  }
 }
 
 .coffees-list {
   display: inline-block;
   width: 100%;
   height: fit-content;
+  @media only screen and (min-width: 992px) {
+    text-align: center;
+  }
 }
 
 .coffee-card figcaption {
@@ -130,6 +157,9 @@ article#coffees h2 {
   padding: .5rem;
   color: #131918;
   font-size: .9rem;
+  @media only screen and (min-width: 992px) {
+    padding: 1rem 2rem 2rem 2rem;
+  }
 }
 
 .coffee-info li:before {
@@ -138,6 +168,10 @@ article#coffees h2 {
 
 article#events {
   padding: 1rem;
+
+  @media only screen and (min-width: 992px) {
+    padding: 1.5rem 8rem;
+  }
 }
 
 article#events h2, article#register h2  {
@@ -149,6 +183,8 @@ table {
   background-color: #1c2221;
   width: 100%;
   height: 200px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: .75rem;
 }
 
 th {
@@ -165,6 +201,11 @@ td {
 
 article#register {
   padding: 1rem;
+  margin-bottom: 32px;
+
+  @media only screen and (min-width: 992px) {
+    padding: 1.5rem 8rem;
+  }
 }
 
 article#register p {
@@ -183,8 +224,19 @@ article#register h2 {
   text-align: left;
 }
 
+article#register p {
+  @media only screen and (min-width: 992px) {
+    width: 50% 
+  }
+}
+
 strong {
   color: #457A39;
+}
+
+article#register section:nth-child(2) {
+  text-align: center;
+  vertical-align: middle;
 }
 
 
@@ -193,7 +245,14 @@ form {
   border-radius: 0.75rem;
   padding: 1rem;
   text-align: center;
-  margin-bottom: 32px;
+  display: inline-block;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+  @media only screen and (min-width: 992px) {
+    width: 450px;
+    vertical-align: middle;
+    padding: 2rem 1rem;
+  }
 }
 
 input:not([type="checkbox"]){
@@ -267,6 +326,12 @@ h1 {
   font-weight: 500;
   line-height: 100%;
   margin-bottom: 2rem;
+
+  @media only screen and (min-width: 992px) {
+    width: 450px;
+    font-size: 3.5rem;
+    margin-top: 2rem;
+  }
 }
 
 section#page-title {
@@ -276,6 +341,18 @@ section#page-title {
   padding: 1.5rem;
   background: url('assets/cafe-banner-2.png'), lightgray 50% / cover no-repeat;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+  @media only screen and (min-width: 992px) {
+    width: 100%;
+    height: 32rem;
+    background: url('assets/cafe-banner.jpg'), lightgray 50%;
+    background-size: 100% ;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 0;
+    padding: 1.5rem 8rem;
+    box-shadow: none;
+  }
 }
 
 ul {
@@ -309,6 +386,11 @@ nav a{
   border: none;
   background-color: #457A39;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  
+  @media only screen and (min-width: 992px) {
+    padding: .5rem 2.5rem;
+    margin-top: 1rem;
+  }
 }
 
 .call-to-action:hover {
@@ -322,6 +404,10 @@ nav a{
   display: inline-block;
   font-weight: 500;
   font-size: .74rem;
+  
+  @media only screen and (min-width: 992px) {
+    font-size: 1rem;
+  }
 }
 
 p#legend {
@@ -329,9 +415,25 @@ p#legend {
   font-size: 1rem;
   font-weight: 300;
   margin: 1rem 2rem;
+
+  @media only screen and (min-width: 992px) {
+    width: 50%;
+    display: inline-block;
+  }
 }
 
 p#legend span {
   color: #457A39;
   font-weight: 400;
+}
+
+#home section:nth-child(2) {
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+@media only screen and (min-width: 992px) {
+  h2 {
+    font-size: 2rem;
+  }
 }
