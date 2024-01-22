@@ -1,0 +1,11 @@
+{
+  "registrations": [
+    {
+      "name": "bruno",
+      "email": "bruno@email.com",
+      "phone": "21123412345",
+      "accepted": "true",
+      "id": 1
+    }
+  ]
+}

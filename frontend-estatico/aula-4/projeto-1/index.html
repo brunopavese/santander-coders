@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="styles.css" rel="stylesheet">
+  <title>Café Arte</title>
+</head>
+
+<body>
+  <header>
+    <img src="assets/cafeartelogo.svg" alt="Logo do Café Arte" height="30px" />
+    <nav>
+      <ul>
+        <li>
+          <a href="#coffees">Cafés</a>
+        </li>
+        <li>
+          <a href="#events">Eventos</a>
+        </li>
+        <li>
+          <a href="#register">Cadastro</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <article id="home">
+      <section id="page-title">
+        <h1>Bem-vindo ao Café Arte</h1>
+        <button class="call-to-action">
+          <a href="#register">Cadastre-se</a>
+        </button>
+      </section>
+      <section>
+        <p id="legend">
+          Um lugar <span>mágico</span> e encantador onde a paixão pelo <span>café</span> se mistura com a efervescência
+          da <span>criatividade</span>.
+        </p>
+        <ul>
+          <li>
+            <img class="icon" src="assets/coffee.svg" alt="Ícone de xícara de café">
+          </li>
+          <li>
+            <img class="icon" src="assets/paint-brush.svg" alt="Ícone de pincel de pintura">
+          </li>
+        </ul>
+      </section>
+    </article>
+
+    <article id="coffees">
+      <h2>Nossos cafés</h2>
+      <div class="coffees-list">
+
+        <figure class="coffee-card">
+          <img src="assets/java-coffe.png" alt="Imagem java coffee">
+          <div class="coffee-info">
+            <figcaption>Java Coffee</figcaption>
+            <ul>
+              <li>Aroma intenso</li>
+              <li>chocolate amargo</li>
+              <li>Torra média escura</li>
+            </ul>
+          </div>
+        </figure>
+        <figure class="coffee-card">
+          <img src="assets/mocha-delight.png" alt="Imagem mocha delight">
+          <div class="coffee-info">
+            <figcaption>Mocha Delight</figcaption>
+            <ul>
+              <li>Café e chocolate</li>
+              <li>Toque de baunilha</li>
+              <li>Intenso e encorpado</li>
+            </ul>
+          </div>
+        </figure>
+        <figure class="coffee-card">
+          <img src="assets/caramel-bliss.png" alt="Imagem caramel bliss">
+          <div class="coffee-info">
+            <figcaption>Caramel Bliss</figcaption>   
+            <ul>
+              <li>Sabor de caramelo</li>
+              <li>Leve acidez</li>
+              <li>Finalização doce</li>
+            </ul>
+          </div>
+        </figure>
+        <figure class="coffee-card">
+          <img src="assets/hazelnut-heaven.png" alt="Imagem hazelnut heaven">
+          <div class="coffee-info">
+            <figcaption>Hazelnut Heaven</figcaption>   
+            <ul>
+              <li>Aroma de avelã</li>
+              <li>Nozes tostadas</li>
+              <li>Corpo equilibrado</li>
+            </ul>
+          </div>
+        </figure>
+      </div>
+    </article>
+
+    <aside>
+      <h2>Nossa história</h2>
+      <p>No coração de uma rua encantadora, surge o CaféArte, um café mágico fundado por Alistair Moonshadow, um apaixonado viajante e amante de café. O CaféArte é mais do que um simples café; é um refúgio acolhedor onde a magia do café se entrelaça com as artes e a criatividade. Com uma atmosfera única, o local se tornou um ponto de encontro para escritores, artistas e amantes da cultura, oferecendo poções de café mágicas, delícias culinárias e eventos culturais. O site, criado por um talentoso desenvolvedor, reflete a essência mágica do CaféArte, proporcionando uma experiência virtual única para os visitantes explorarem e se inspirarem.</p>
+    </aside>
+
+    <article id="events">
+      <h2>Eventos semanais</h2>
+      <table>
+        <thead>
+          <th>&nbsp;</th>
+          <th>Sexta</th>
+          <th>Sábado</th>
+          <th>Domingo</th>
+        </thead>
+        <tbody>
+          <tr>
+            <th>Manhã</th>
+            <td colspan="2">Workshop interativo</td>
+            <td rowspan="3">Expressões Culturais na Xícara</td>
+          </tr>
+          <tr>
+            <th>Tarde</th>
+            <td>Tarde Literária</td>
+            <td>Brunch Exclusivo</td>
+          </tr>
+          <tr>
+            <th>Noite</th>
+            <td>Jogos e Café</td>
+            <td>Café ao Luar</td>
+          </tr>
+        </tbody>
+      </table>
+    </article>
+
+    <article id="register">
+      <section>
+        <h2>Cadastre-se</h2>
+        <p>Fique por dentro de nossas novidades e eventos, receba antes de todos nossos novos <strong>sabores</strong> e <strong>promoções</strong>!</p>
+      </section>
+      <section>
+        <form action="http://localhost:3000/registrations" method="post">
+          <label for="name">Nome</label> <br>
+          <input type="text" id="name" name="name" placeholder="John Doe" required> <br>
+
+          <label for="email">Email</label> <br>
+          <input type="email" id="email" name="email" placeholder="john@email.com" required> <br>
+
+          <label for="phone">Telefone</label> <br>
+          <input type="tel" id="phone" name="phone" placeholder="(00)0000-0000" pattern="\d{2}\s?\d{5}\d{4}" required> <br>
+
+          <div class="check-terms">
+            <input type="checkbox" id="accepted" name="accepted" value="true" required>
+            <label for="accepted">Eu li e aceito os Termos de Uso</label> <br>
+          </div>
+            
+          <button type="submit">Cadastrar</button>
+        </form>
+      </section>
+    </article>
+  </main>
+  <footer>
+    <nav>
+      <ul>
+        <li>
+          <a href="https://github.com/brunopavese" target="_blank">
+            <img src="assets/github-icon.svg" alt="icone do github">
+            GitHub
+          </a>
+        </li>
+        <li>
+          <a href="https://linkedin.com/in/brunopavese" target="_blank">
+            <img src="assets/linkedin-icon.svg" alt="icone do linkedin">
+            LinkedIn
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <p>
+      &copy; 2024 - CaféArte - Bruno Pavese
+    </p> 
+  </footer>
+</body>
+
+</html>

@@ -1,0 +1,24 @@
+.destacado span {
+  color: blue;
+}
+
+ul li {
+  color: cyan
+}
+
+ul > li {
+  color: tomato
+}
+
+div.conteúdo > h2 {
+  color: brown;
+}
+
+p ~ p {
+  background-color: aqua;
+}
+
+table ~ table {
+  background-color: blueviolet;
+}
+

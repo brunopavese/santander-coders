@@ -76,6 +76,12 @@ fieldset label {
   font-weight: 400;
 }
 
+fieldset .radio-option {
+  float: left;
+  width: 100%;
+  margin-bottom: 8px;
+}
+
 fieldset {
   display: flex;
   flex-direction: column;
