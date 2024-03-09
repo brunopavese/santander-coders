@@ -1,48 +1,49 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.Pessoa = void 0;
 class Pessoa {
     constructor(nome, idade, cpf) {
         if (this.validaNome(nome) && this.validaIdade(idade) && this.validaCpf(cpf)) {
-            this.nome = nome;
-            this.idade = idade;
-            this.cpf = cpf;
+            this._nome = nome.toUpperCase();
+            this._idade = idade;
+            this._cpf = cpf;
+            Pessoa.cpfCadastrados.push(cpf);
         }
         else {
             throw new TypeError('Dados fornecidos inválidos ao criar uma Pessoa{}');
         }
     }
     validaNome(nome) {
-        return nome.length >= 4 && !/\d/.test(nome);
+        return nome.length >= 4 && /^[a-zA-ZÀ-ú]+(?: [a-zA-ZÀ-ú]+)*$/.test(nome);
     }
     validaIdade(idade) {
         return idade >= 0 && idade < 200;
     }
     validaCpf(cpf) {
-        return /^\d{3}\.\d{3}\.\d{3}-\d{2}$/.test(cpf);
+        return /^\d{3}\.\d{3}\.\d{3}-\d{2}$/.test(cpf) && !Pessoa.cpfCadastrados.includes(cpf);
     }
     exibirDados() {
-        console.log(`nome: ${this.nome}\nidade: ${this.idade}\ncpf: ${this.cpf}`);
+        console.log(`nome: ${this._nome}\nidade: ${this.idade}\ncpf: ${this.cpf}`);
     }
-    getNome() {
-        return this.nome;
+    get nome() {
+        return this._nome;
     }
-    setNome(nome) {
+    set nome(nome) {
         if (this.validaNome(nome)) {
-            this.nome = nome;
-            return true;
+            this._nome = nome;
         }
-        return false;
     }
-    getIdade() {
-        return this.idade;
+    get idade() {
+        return this._idade;
     }
-    setIdade(idade) {
+    set idade(idade) {
         if (this.validaIdade(idade)) {
-            this.idade = idade;
-            return true;
+            this._idade = idade;
         }
-        return false;
     }
-    getCpf() {
-        return this.cpf;
+    get cpf() {
+        return this._cpf;
     }
 }
+exports.Pessoa = Pessoa;
+Pessoa.cpfCadastrados = [];

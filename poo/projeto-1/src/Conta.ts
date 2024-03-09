@@ -2,30 +2,30 @@ import { Pessoa } from "./Pessoa"
 
 export class Conta {
   readonly titular: Pessoa
-  private saldo: number
+  private _saldo: number
   private contaAtiva: boolean
   private static titulares: Array<string> = []
 
   constructor(pessoa: Pessoa) {
-    if (Conta.titulares.includes(pessoa.getCpf())) {
+    if (Conta.titulares.includes(pessoa.cpf)) {
       throw new Error('Não foi possível cria uma conta: CPF já cadastrado em outra conta')
     }
     this.titular = pessoa
-    this.saldo = 0
+    this._saldo = 0
     this.contaAtiva = true
-    Conta.titulares.push(pessoa.getCpf())
+    Conta.titulares.push(pessoa.cpf)
   }
 
   ativarConta(): boolean {
-    if (!this.contaAtiva) {
-      this.contaAtiva = true
-      return true
+    if (this.contaAtiva) {
+      return false
     }
-    return false
+    this.contaAtiva = true
+    return true
   }
 
   inativarConta(): boolean {
-    if (this.saldo === 0 && this.contaAtiva) {
+    if (this._saldo === 0 && this.contaAtiva) {
       this.contaAtiva = false
       return true
     }
@@ -34,27 +34,27 @@ export class Conta {
 
   depositar(valor: number): boolean {
     if (this.contaAtiva && valor > 0) {
-      this.saldo += valor
+      this._saldo += valor
       return true
     }
     return false
   }
 
   sacar(valor: number): boolean {
-    if (this.saldo >= valor && valor > 0) {
-      this.saldo -= valor
+    if (this._saldo >= valor && valor > 0) {
+      this._saldo -= valor
       return true
     }
     return false
   }
 
-  obterSaldo(): number {
-    return this.saldo
+  get saldo(): number {
+    return this._saldo
   }
 
   transferir(valor: number, contaDestino: Conta): boolean {
-    if (this.saldo >= valor && valor > 0 && contaDestino.contaAtiva) {
-      this.saldo -= valor
+    if (this._saldo >= valor && valor > 0 && contaDestino.contaAtiva) {
+      this._saldo -= valor
       contaDestino.depositar(valor)
       return true
     }

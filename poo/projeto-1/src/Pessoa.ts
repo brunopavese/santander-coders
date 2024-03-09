@@ -1,14 +1,14 @@
 export class Pessoa {
-  private nome: string
-  private idade: number
-  private cpf: string
+  private _nome: string
+  private _idade: number
+  private _cpf: string
   private static cpfCadastrados: Array<string> = []
 
   constructor(nome: string, idade: number, cpf: string) {
     if (this.validaNome(nome) && this.validaIdade(idade) && this.validaCpf(cpf)) {
-      this.nome = nome.toUpperCase()
-      this.idade = idade
-      this.cpf = cpf
+      this._nome = nome.toUpperCase()
+      this._idade = idade
+      this._cpf = cpf
       Pessoa.cpfCadastrados.push(cpf)
     } else {
       throw new TypeError('Dados fornecidos inválidos ao criar uma Pessoa{}')
@@ -28,34 +28,30 @@ export class Pessoa {
   }
 
   exibirDados(): void {
-    console.log(`nome: ${this.nome}\nidade: ${this.idade}\ncpf: ${this.cpf}`)
+    console.log(`nome: ${this._nome}\nidade: ${this.idade}\ncpf: ${this.cpf}`)
   }
 
-  getNome(): string {
-    return this.nome
+  get nome(): string {
+    return this._nome
   }
 
-  setNome(nome: string): boolean {
+  set nome(nome: string) {
     if (this.validaNome(nome)) {
-      this.nome = nome
-      return true
+      this._nome = nome
     }
-    return false
   }
 
-  getIdade(): number {
-    return this.idade
+  get idade(): number {
+    return this._idade
   }
 
-  setIdade(idade: number): boolean {
+  set idade(idade: number) {
     if (this.validaIdade(idade)) {
-      this.idade = idade
-      return true
+      this._idade = idade
     }
-    return false
   }
 
-  getCpf(): string {
-    return this.cpf
+  get cpf(): string {
+    return this._cpf
   }
 }

@@ -1,2 +1,15 @@
 "use strict";
-console.log("hello mundo");
+Object.defineProperty(exports, "__esModule", { value: true });
+const Conta_1 = require("./Conta");
+const Pessoa_1 = require("./Pessoa");
+const pessoa1 = new Pessoa_1.Pessoa('beatriz', 22, '123.456.789-10');
+const pessoa2 = new Pessoa_1.Pessoa('joão paulo', 29, '123.456.789-11');
+const conta1 = new Conta_1.Conta(pessoa1);
+const conta2 = new Conta_1.Conta(pessoa2);
+console.log(conta1);
+console.log(conta2);
+console.log('Depositar:', conta1.depositar(20));
+console.log('Sacar:', conta1.sacar(2));
+console.log('Transferir:', conta1.transferir(10, conta2));
+console.log(conta1);
+console.log(conta2);

@@ -1,49 +1,55 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.Conta = void 0;
 class Conta {
-    constructor(nomeTitular) {
-        if (this.validaNome(nomeTitular)) {
-            this.nomeTitular = nomeTitular;
-            this.saldo = 0;
-            this.contaAtiva = true;
-            Conta.titulares.push(nomeTitular);
+    constructor(pessoa) {
+        if (Conta.titulares.includes(pessoa.cpf)) {
+            throw new Error('Não foi possível cria uma conta: CPF já cadastrado em outra conta');
         }
-        else {
-            throw new Error('O nome fornecido não é válido.');
-        }
-    }
-    validaNome(nomeTitular) {
-        return nomeTitular.length >= 4 && !/\d/.test(nomeTitular) && !Conta.titulares.includes(nomeTitular);
+        this.titular = pessoa;
+        this._saldo = 0;
+        this.contaAtiva = true;
+        Conta.titulares.push(pessoa.cpf);
     }
     ativarConta() {
-        if (!this.contaAtiva) {
-            this.contaAtiva = true;
-            return true;
+        if (this.contaAtiva) {
+            return false;
         }
-        return false;
+        this.contaAtiva = true;
+        return true;
     }
     inativarConta() {
-        if (this.saldo === 0 && this.contaAtiva) {
+        if (this._saldo === 0 && this.contaAtiva) {
             this.contaAtiva = false;
             return true;
         }
         return false;
     }
     depositar(valor) {
-        if (this.contaAtiva) {
-            this.saldo += valor;
+        if (this.contaAtiva && valor > 0) {
+            this._saldo += valor;
             return true;
         }
         return false;
     }
     sacar(valor) {
-        if (this.saldo >= valor && this.saldo > 0 && this.contaAtiva) {
-            this.saldo -= valor;
+        if (this._saldo >= valor && valor > 0) {
+            this._saldo -= valor;
             return true;
         }
         return false;
     }
-    obterSaldo() {
-        return this.saldo;
+    get saldo() {
+        return this._saldo;
+    }
+    transferir(valor, contaDestino) {
+        if (this._saldo >= valor && valor > 0 && contaDestino.contaAtiva) {
+            this._saldo -= valor;
+            contaDestino.depositar(valor);
+            return true;
+        }
+        return false;
     }
 }
+exports.Conta = Conta;
 Conta.titulares = [];
