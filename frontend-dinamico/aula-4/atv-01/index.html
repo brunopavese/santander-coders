@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Document</title>
+  <script>
+    function addLampada() {
+      const novaLampada = document.createElement('li')
+      const listaDeLampadas = document.getElementById('lampadas')
+      const input = document.getElementById('item')
+
+      novaLampada.setAttribute('style', 'display: flex; flex-direction: column; align-items: center')
+
+      novaLampada.innerHTML = `
+      <img src="assets/apagada.jpg" width="120px" 
+        onclick="quebraLampada(this)"
+        onmouseover="acendeLampada(this)"
+        onmouseout="apagaLampada(this)">
+      <span>${input.value}</span>`
+
+      listaDeLampadas.appendChild(novaLampada)
+      input.value = ''
+    }
+
+    function quebraLampada(elemento) {
+      elemento.setAttribute('src', 'assets/quebrada.jpg')
+
+      elemento.removeAttribute('onmouseover')
+      elemento.removeAttribute('onmouseout')
+    }
+
+    function acendeLampada(elemento) {
+      elemento.setAttribute('src', 'assets/acesa.jpg')
+    }
+
+    function apagaLampada(elemento) {
+      elemento.setAttribute('src', 'assets/apagada.jpg')
+    }
+  </script>
+</head>
+
+<body>
+  <h1>Lampadas</h1>
+  <input type="text" name="item" id="item">
+  <button id="btnAddItem" onclick="addLampada()">Adicionar lâmpada</button>
+  <ul id="lampadas" style="display: flex; flex-direction: row;"></ul>
+</body>
+
+</html>

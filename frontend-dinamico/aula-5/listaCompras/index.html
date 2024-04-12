@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./styles/styles.css">
+  <title>lista compras aula 5</title>
+</head>
+<h1>Lista de compras</h1>
+<input id="limite" class="cabecalho" placeholder="Limite de preço (00.00)" type="number">
+<br>
+<input id="produto" placeholder="Produto" class="cabecalho" type="text">
+<input id="valor" placeholder="Valor (00.00)" class="cabecalho" type="number">
+<button id="add" onclick="adicionarProduto()">Adicionar Produto</button>
+
+<ul id="lista"></ul>
+
+<hr>
+<h3>Soma </h3>
+<span id="soma" style="color: white">R$ 0,00</span>
+
+<body>
+</body>
+<script>
+  const produtos = []
+  let idContador = 1
+
+  function adicionarProduto() {
+    const nomeProdutoInput = document.getElementById('produto')
+    const valorProdutoInput = document.getElementById('valor')
+    const id = `produto_${idContador++}`
+    const nomeProduto = nomeProdutoInput.value.trim()
+    const valorProduto = Number(valorProdutoInput.value)
+    const novoProduto = { id, nomeProduto, valorProduto }
+
+    produtos.push(novoProduto)
+
+    criarElementoHTMLDoProduto(...Object.values(novoProduto))
+
+    nomeProdutoInput.value = ''
+    valorProdutoInput.value = ''
+    console.log(produtos);
+    atualizaValorDaSoma()
+  }
+
+  function removerProduto(id) {
+    const index = produtos.findIndex(produto => produto.id === id)
+    const elemento = document.getElementById(id)
+
+    if (index === -1) return
+
+    produtos.splice(index, 1)
+    elemento.remove()
+    console.log(produtos);
+    atualizaValorDaSoma()
+  }
+
+  function criarElementoHTMLDoProduto(id, nomeProduto, valorProduto) {
+    const produtosElemento = document.getElementById('lista')
+    const novoProduto = document.createElement('li')
+    const idDoCheckbox = 'checkbox_' + id
+
+    novoProduto.id = id
+
+    novoProduto.innerHTML = `
+      <input class="checkbox" type="checkbox" name="" id="${idDoCheckbox}">
+      <span>${nomeProduto}</span>
+      <span>${valorEmBRL(valorProduto)}</span>
+      <button onclick="removerProduto(this.parentElement.id)">Remover</button>
+    `
+
+    produtosElemento.appendChild(novoProduto)
+
+    const checkbox = document.getElementById(idDoCheckbox)
+
+    checkbox.addEventListener("click", () => {
+      const estaSelecionado = checkbox.checked
+      checkbox.parentElement.querySelectorAll("span").forEach(el => {
+        el.style.textDecoration = estaSelecionado ? 'line-through' : 'none'
+      })
+    })
+  }
+
+  function atualizaValorDaSoma() {
+    const valorLimiteInput = document.getElementById('limite')
+    const somaTotalElemento = document.getElementById('soma')
+    let somaTotal = 0
+
+    produtos.forEach(produto => somaTotal += produto.valorProduto)
+    somaTotalElemento.innerText = valorEmBRL(somaTotal)
+
+    somaTotalElemento.style.color = somaTotal > Number(valorLimiteInput.value) ? 'red' : 'white'
+  }
+
+  function valorEmBRL(valor) {
+    return valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
+  }
+
+  /*
+      Materia nova ->
+      Adicionar o line-through e retirá-lo para mexermos no style
+
+      Dado o atual HTML estilizado, vamos fazer o seguinte ->
+
+      Vamos utilizar um array de objetos para representar os nossos produtos.
+      Ao iniciar, vamos adicionar os elementos contidos no array ao HTML;
+      Poderemos selecionar o produto (Checkbox) e assim ele ficará riscado da lista.
+
+
+      DESAFIO
+      Teremos um campo para fazer a soma
+      Também teremos um campo chamado "Limite".
+      Ao ultrapassarmos esse limite, o valor da soma deverá ficar vermelho
+
+  */
+</script>
+
+</html>

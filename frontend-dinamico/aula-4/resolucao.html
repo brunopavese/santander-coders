@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <p>p1</p>
+    <p>p2</p>
+    <p>p3</p>
+    <hr>
+    <div class="textoVerde">
+        Esse é meu texto verde
+    </div>
+    <br>
+    <div class="elementoEscondido" hidden>
+        Div escondida
+    </div>
+    <hr>
+    <h3>
+        Lista de compras
+    </h3>
+    <ul id="minhaLista">
+        <li id="li_1">Elemento 1 da lista</li>
+        <li id="li_2">Elemento 2 da lista</li>
+        <li id="li_3">Elemento 3 da lista</li>
+        <li id="li_4">Elemento 4 da lista</li>
+        <li id="li_5">Elemento 5 da lista</li>
+    </ul>
+    <button class="botaoLista" onclick="adicionarElementoLI()">Adicionar</button>
+    <hr>
+    <ol>
+        <li>Item 1</li>
+        <li>Item 2</li>
+    </ol>
+</body>
+<style>
+    .textoVerde {
+        color: green;
+    }
+
+    .textoAzul {
+        color: blue;
+    }
+</style>
+<script>
+
+    /* Questão 1 */
+    const pElements = document.querySelectorAll("p");
+    /*
+        Ao utilizar o querySelectorAll, temos um array de elementos
+        (0 caso não ache nenhum elemento), e o método nos permite usar
+        o forEach para iterar sob cada elemento encontrado no DOM
+        e assim, nos possibilita de interagir com o mesmo.
+    */
+
+    pElements.forEach((el, index) => {
+        /*
+            Cada el é referente ao elemento encontrado no DOM
+            e temos todas as funções de manipulação disponíveis
+            no mesmo
+        */
+        const texto = `Esta é a minha ${index + 1}º TAG <p>`;
+        el.innerText = texto;
+    })
+
+    /* Fim questão 1 */
+
+    /* Questão 2 */
+    const elTextoVerde = document.querySelectorAll(".textoVerde");
+
+    elTextoVerde.forEach((el) => {
+        el.classList.remove('textoVerde');
+        el.classList.add('textoAzul');
+        el.innerText = "Este é meu texto azul"
+    });
+
+    /*
+        const elTextoVerde2 = document.querySelector(".textoAzul");
+        elTextoVerde2.removeAttribute("class");
+        elTextoVerde2.setAttribute("class", "textoAzul")
+    */
+
+    /* Fim questão 2 */
+
+    /* Questão 3 */
+
+    const elementosEscondidos = document.querySelectorAll('.elementoEscondido');
+    elementosEscondidos.forEach((el)=>{
+        el.removeAttribute("hidden");
+    })
+    /* Fim questão 3 */
+
+    /* Questão 4 */
+
+    /* const lista = document.querySelector('#minhaLista');
+    let indexLista = 6;
+
+    function adicionarElemento(){
+        const novoItem = document.createElement("li");
+        novoItem.id = `li_${indexLista}`;
+        novoItem.innerText = `Elemento ${indexLista++} da lista`;
+        lista.appendChild(novoItem)
+    }*/
+    /*
+    function adicionarElementoLI() {
+        const minhaLista = document.querySelector('#minhaLista');
+        const LIs = minhaLista.querySelectorAll('li');
+        const next = LIs.length + 1;
+        minhaLista.insertAdjacentHTML(
+        'beforeend',
+        `<li id="li_${next}">Elemento ${next} da lista</li>`
+        );
+    }
+    */
+
+    /*
+    const listaItems = document.querySelector("ul")
+        const botao = document.querySelector(".botaoLista")
+
+        let indice = 6
+        botao.addEventListener("click" ,() =>   {
+            const itemLista = document.createElement("li")
+            itemLista.innerText = `Elemento ${indice} da lista`
+            indice ++
+            listaItems.appendChild(itemLista)
+        })
+    */
+    
+
+    /* Fim questão 4 */
+
+    /*
+        Atividade de Fixação.
+
+        Notas -> A resolução de todas as questões devem ser feitas na TAG script
+
+        1) Selecione e altere todos os elementos com a TAG <p> para conterem um texto com a seguinte descrição:
+            Esta é a minha nº TAG </p>.
+
+            Dica-> o seletor document.querySelectorAll nos retorna um array e podemos utilizar o forEach.
+        
+        2) Selecione os elementos que contém a class textoVerde e as altere para textoAzul e altere o texto contido nesse 
+           elemento.
+
+        3) Selecione os elementos que tem a classe elementoEscondido e os mostre no HTML (Os elementos escondidos contém
+           o atributo hidden).
+
+        4) [DESAFIO] Crie um botão que, cada vez que for pressionado, insira um elemento no final da lista de id "minhaLista" 
+            contendo o seguinte texto:
+
+            "Elemento n da lista"
+
+            OBS -> Deve ter continuidade dos numeros da lista atual
+            DICA ->         
+            console.log(document.getElementById("minhaLista").children);
+            console.log(document.getElementById("minhaLista").childNodes);
+    */
+</script>
+
+</html>

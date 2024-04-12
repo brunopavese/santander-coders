@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula - 03</title>
+</head>
+<body>
+    <h1>Mega sena</h1>
+    Números: <span hidden id="numeros"></span>
+    <hr>
+    Números digitados:
+    <br>
+    <input style="width: 40px;" type="number">
+    <input style="width: 40px;" type="number">
+    <input style="width: 40px;" type="number">
+    <input style="width: 40px;" type="number">
+    <input style="width: 40px;" type="number">
+    <input style="width: 40px;" type="number">
+    <br>
+    <br>
+    <button onclick="revelarNumeros()">
+        Revelar números
+    </button>
+</body>
+<script>
+    const numerosMegaSena = 6;
+    const numeros = [];
+    /*
+    Fazer um for para o numero de elementos
+    validar se o elemento ja existe
+    */
+    function revelarNumeros(){
+        const elNumero = document.getElementById("numeros");
+        elNumero.removeAttribute("hidden")
+    }
+
+    function gerarNumeroEntreUmESessenta() {
+        return Math.floor(Math.random() * 60) + 1;
+    }
+
+    function adicionarNumero(){
+        const elNumeros = document.getElementById('numeros');
+        let numeroAleatorio = gerarNumeroEntreUmESessenta();
+
+        while(numeros.includes(numeroAleatorio)){
+            numeroAleatorio = gerarNumeroEntreUmESessenta();
+        }
+
+        const elementoNovoNumero = document.createElement("b");
+        elementoNovoNumero.innerText = numeroAleatorio + " ";
+
+        elNumeros.appendChild(elementoNovoNumero);
+
+        numeros.push(numeroAleatorio);
+    }
+
+    for(let x = 0; x < numerosMegaSena; x++){
+        adicionarNumero();
+    }
+
+
+</script>
+</html>

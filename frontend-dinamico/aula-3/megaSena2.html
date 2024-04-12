@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mega Sena</title>
+  <script>
+    function gerarNumeroEntreUmESessenta() {
+      return Math.floor(Math.random() * 60) + 1;
+    }
+
+    function revelarNumeros() {
+      const elemento = document.getElementById('numeros')
+      const elementoNumeros = document.createElement('strong')
+      const numerosArr = []
+
+      elemento.innerText = ''
+
+      while (numerosArr.length < 6) {
+        let numero = gerarNumeroEntreUmESessenta()
+        if (numerosArr.indexOf(numero) === -1) {
+          numerosArr.push(numero)
+        }
+      }
+
+      elementoNumeros.innerText = numerosArr.sort((a, b) => a - b).join(' ')
+      elemento.appendChild(elementoNumeros)
+    }
+  </script>
+</head>
+
+<body>
+  <h1>Mega Sena</h1>
+  Números: <span id="numeros"></span>
+  <hr>
+  Números digitados:
+  <br>
+  <input style="width: 30px;" type="number">
+  <input style="width: 30px;" type="number">
+  <input style="width: 30px;" type="number">
+  <input style="width: 30px;" type="number">
+  <input style="width: 30px;" type="number">
+  <input style="width: 30px;" type="number">
+  <br>
+  <br>
+  <button onClick="revelarNumeros()">
+    Revelar números
+  </button>
+</body>
+
+</html>
